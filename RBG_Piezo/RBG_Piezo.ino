@@ -4,20 +4,21 @@ const int blue=10;
 const int green=11;
 int piezoValue;
 int pause=10, redo=0, variance=0;
+int timeDelay = 0;
 
 void setup()
 {
   Serial.begin(9600);
   randomSeed(analogRead(1));
   //setRGB(blue);
-  randomTransition(20);
+  //randomTransition(20);
   //setColor(0, 0, 255);
 }
 
 void loop()
 {
   piezoValue = analogRead(0);
-  //Serial.println(piezoValue);
+  Serial.println(piezoValue);
   while(piezoValue > 0 && redo == 0)
   {
     variance++;
@@ -36,9 +37,16 @@ void loop()
     }
     delay(200);
     redo = 1;
+    timeDelay = 0;
   }
   redo = 0;
   delay(10);
+  timeDelay++;
+  if (timeDelay >= 3000)
+  {
+    setColor(0,0,0);
+    delay(10);
+  }
 }
 
 void setColor(int redLED, int greenLED, int blueLED)

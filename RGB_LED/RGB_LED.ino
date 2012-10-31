@@ -2,7 +2,7 @@
 const int red=9;
 const int blue=10;
 const int green=11;
-int pause=10;
+int pause=15;
 
 void setup()
 {
@@ -13,10 +13,10 @@ void setup()
 void loop()
 {
   //Serial.println("running");
-  //setColor(50,50,50);
-  //ballonDisplay();
-  //delay(1000);
-  //randomTransition(random(100));
+  //setColor(255,2,2);
+  ballonDisplay();
+  delay(1000);
+  //randomTransition(10000);
   colorWheel();
 }
 
